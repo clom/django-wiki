@@ -36,6 +36,8 @@ INSTALLED_APPS = {
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tomori',
+    'bootstrap_toolkit',
+    'widget_tweaks',
 }
 
 MIDDLEWARE_CLASSES = (
