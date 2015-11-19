@@ -1,6 +1,9 @@
-from django import forms
+from django.forms import ModelForm
+from tomori.models import *
 
 
-class LoginForm(forms.Form):
-    account = forms.CharField(widget=forms)
-    passwd = forms.CharField(widget=forms.PasswordInput)
+class FormArticle(ModelForm):
+
+    class Meta:
+        model = Article
+        fields = ('title', 'text',)

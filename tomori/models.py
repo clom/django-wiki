@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Article(models.Model):
     title = models.CharField(max_length=100)
-    text = models.CharField(max_length=10000)
+    text = models.TextField()
     username = models.ForeignKey(User)
 
     def __unicode__(self):
