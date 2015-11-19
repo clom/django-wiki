@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>My Page</h1>
+    <hr>
+    <h3>ユーザ情報</h3>
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+            <td>ユーザ名</td>
+            <td>{{ user }}</td>
+        </tr>
+        <tr>
+            <td>氏名</td>
+            <td>{{ user.get_full_name|default:user.username }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock content %}

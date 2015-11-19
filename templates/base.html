@@ -39,9 +39,21 @@
                     <li><a href="./">Top</a></li>
                 </ul>
                 {% if request.user.is_authenticated %}
-                    <p class="navbar-text navbar-right">現在のログインユーザ: {{ user }}</p>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="dropdown">ログイン中: {{ user }}
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/mypage/">マイページ</a></li>
+                                <li><a href="/logout/">ログアウト</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 {% else %}
-                    <p class="navbar-text navbar-right">ログインしていません</p>
+                    <button class="btn btn-info btn-sm navbar-btn navbar-right" onclick="location.href='/login/'">ログイン
+                    </button>
+
                 {% endif %}
             </div>
         </div>
