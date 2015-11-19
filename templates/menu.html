@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}">
+<body>
+<h2>Menu</h2>
+{% for ttl in article %}
+    <a href="/pages/{{ ttl.id }}">{{ ttl.title }}</a> <br>
+{% endfor %}
+</body>
+</html>

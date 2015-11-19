@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block navi %}
+    {% if request.user.is_authenticated %}
+        <li><a href="/edit/{{ text.id }}">edit</a></li>
+    {% endif %}
+{% endblock %}
+{% block content %}
+    <h1>{{ text.title }}</h1>
+    <script>
+        var txt = marked("{{ text.text }}");
+        document.write(txt);
+    </script>
+{% endblock content %}

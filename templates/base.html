@@ -12,7 +12,15 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/umi.css' %}">
-    <script src="{% static 'js/marked.js' %}"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#side").load("/menu/");
+        });
+    </script>
+
 
     <!--[if lt IE 9]>
     <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -39,6 +47,10 @@
                 <ul class="nav navbar-nav">
                     <!-- menu   -->
                     <li><a href="/">Top</a></li>
+                    {% if request.user.is_authenticated %}
+                        <li><a href="/new">new</a></li>
+                    {% endif %}
+                    {% block navi %}{% endblock %}
                 </ul>
                 {% if request.user.is_authenticated %}
                     <ul class="nav navbar-nav navbar-right">
@@ -63,9 +75,16 @@
 </header>
 
 <div class="container">
-    {% block content %}
-        {{ content }}
-    {% endblock %}
+    <div class="row">
+        <div class="col-md-4">
+            <div id="side"></div>
+        </div>
+        <div class="col-md-8">
+            {% block content %}
+                {{ content }}
+            {% endblock %}
+        </div>
+    </div>
     <footer>
         <hr>
         (c) 2015 clom-networks.
@@ -73,7 +92,6 @@
 </div>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="{% static 'js/bootstrap.js' %}"></script>
 
 <script type="text/javascript">
