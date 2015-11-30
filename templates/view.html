@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load markdown_deux_tags %}
 {% block navi %}
     {% if request.user.is_authenticated %}
         <li><a href="/edit/{{ text.id }}">edit</a></li>
@@ -6,8 +7,9 @@
 {% endblock %}
 {% block content %}
     <h1>{{ text.title }}</h1>
+    <p>
+    {{ text.text | markdown }}
+    </p>
     <script>
-        var txt = marked("{{ text.text }}");
-        document.write(txt);
     </script>
 {% endblock content %}

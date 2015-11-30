@@ -20,8 +20,8 @@ def mypage(request):
 
 
 def a_read(request, article_id):
-    text = Article.objects.get(pk=article_id)
-    return render_to_response('view.html', {'text': text}, context_instance=RequestContext(request))
+    article = Article.objects.get(pk=article_id)
+    return render_to_response('view.html', {'text': article}, context_instance=RequestContext(request))
 
 
 def add(request, article_id=None):
@@ -34,6 +34,7 @@ def add(request, article_id=None):
         form = FormArticle(request.POST, instance=article)
         if form.is_valid():
             article = form.save(commit=False)
+            print(article.text)
             article.username = request.user
         article.save()
         return redirect('/pages/' + article.id.__str__())
