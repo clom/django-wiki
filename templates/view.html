@@ -8,8 +8,9 @@
 {% block content %}
     <h1>{{ text.title }}</h1>
     <p>
-    {{ text.text | markdown }}
+        <script>
+            document.write(marked('{{text.text | safe}}'))
+        </script>
     </p>
-    <script>
-    </script>
+
 {% endblock content %}

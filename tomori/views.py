@@ -21,6 +21,7 @@ def mypage(request):
 
 def a_read(request, article_id):
     article = Article.objects.get(pk=article_id)
+    article.text = article.text.replace("\r\n","\\r\\n")
     return render_to_response('view.html', {'text': article}, context_instance=RequestContext(request))
 
 
