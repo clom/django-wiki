@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 
+{% block navi %}
+    {% if request.user.is_authenticated %}
+        <li><a href="/topedit/">Top edit</a></li>
+        <li><a href="/menuedit/">Menu edit</a></li>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
-            <h1>Welcome to {{ SITE_TITLE|default:"no title" }}</h1>
+    <h1>Welcome to {{ SITE_TITLE|default:"no title" }}</h1>
+
+    <p>
+        <script>
+            document.write(marked('{{text.text | safe}}'))
+        </script>
+    </p>
+
+    <hr>
+    <h5>Writer: {{ text.username }}</h5>
 {% endblock content %}

@@ -13,4 +13,7 @@ class ArticleAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'title', 'text', 'username')  # 修正リンクでクリックできる項目
 
 
+
 admin.site.register(Article, ArticleAdmin)
+admin.site.register(Menu)
+admin.site.register(Top)

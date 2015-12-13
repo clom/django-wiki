@@ -26,5 +26,7 @@ urlpatterns = [
     url(r'^new/$', add),
     url(r'^edit/(?P<article_id>\d+)/$', add),
     url(r'^pages/(?P<article_id>\d+)/$', a_read),
+    url(r'^topedit/$', topedit),
+    url(r'^menuedit/$', menuedit),
     url(r'^$', index)
 ]

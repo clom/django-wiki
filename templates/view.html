@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load markdown_deux_tags %}
 {% block navi %}
     {% if request.user.is_authenticated %}
         <li><a href="/edit/{{ text.id }}">edit</a></li>
@@ -12,5 +11,8 @@
             document.write(marked('{{text.text | safe}}'))
         </script>
     </p>
+
+    <hr>
+    <h5>Writer: {{ text.username }}</h5>
 
 {% endblock content %}

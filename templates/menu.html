@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"en-us" }}">
 <body>
-<h2>Menu</h2>
+<script>
+    var ele = marked('{{tex.text | safe}}');
+    $('#custom').html(ele);
+</script>
+<div id="custom" >
+
+</div>
+<h2>New Entry</h2>
 {% for ttl in article %}
     <a href="/pages/{{ ttl.id }}">{{ ttl.title }}</a> <br>
 {% endfor %}
