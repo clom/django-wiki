@@ -38,7 +38,6 @@ INSTALLED_APPS = {
     'tomori',
     'bootstrap_toolkit',
     'widget_tweaks',
-    'markdown_deux',
 }
 
 MIDDLEWARE_CLASSES = (
